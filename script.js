@@ -1,4 +1,4 @@
-// Elements
+// Improved version with fixes
 const chatArea = document.getElementById('chat-area');
 const messageInput = document.getElementById('message-input');
 const sendBtn = document.getElementById('send-btn');
@@ -10,13 +10,16 @@ const userStatus = document.getElementById('user-status');
 let username = '';
 
 // Check if already logged in
-if(localStorage.getItem('alaapchats-username')) {
-    username = localStorage.getItem('alaapchats-username');
-    loginModal.style.display = 'none';
-    userStatus.textContent = username;
-} else {
-    loginModal.style.display = 'flex';
-}
+window.addEventListener('load', () => {
+    if(localStorage.getItem('alaapchats-username')) {
+        username = localStorage.getItem('alaapchats-username');
+        loginModal.style.display = 'none';
+        userStatus.textContent = username;
+        addMessage('System', `Welcome back, ${username}!`, 'system');
+    } else {
+        loginModal.style.display = 'flex';
+    }
+});
 
 // Login function
 loginBtn.addEventListener('click', () => {
@@ -36,19 +39,23 @@ function sendMessage() {
         addMessage(username, message, 'my-message');
         messageInput.value = '';
         
-        // Here you would normally send to server
-        // For now we'll just simulate a reply
+        // Simulate a reply (replace with real server code later)
         setTimeout(() => {
-            addMessage('Friend', 'Thanks for your message!', 'other-message');
+            addMessage('Bot', 'Thanks for your message!', 'other-message');
         }, 1000);
     }
 }
 
-// Add message to chat
+// Add message to chat (with timestamp)
 function addMessage(sender, text, type) {
+    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('message', type);
-    messageDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
+    messageDiv.innerHTML = `
+        <strong>${sender}</strong> 
+        <span class="time">${time}</span><br>
+        ${text}
+    `;
     chatArea.appendChild(messageDiv);
     chatArea.scrollTop = chatArea.scrollHeight;
 }
