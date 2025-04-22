@@ -1,12 +1,12 @@
 {
-  "name": "alaapchats",
-  "version": "1.0.0",
-  "description": "Simple chat application",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.18.2"
-  }
-}
+     "name": "alaapchats",
+     "version": "1.0.0",
+     "description": "Simple chat app for all devices",
+     "main": "server.js",
+     "scripts": {
+       "start": "node server.js"
+     },
+     "dependencies": {
+       "express": "^4.18.2"
+     }
+   }
