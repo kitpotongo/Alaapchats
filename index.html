@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AlaapChats</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-app">
+        <div class="header">
+            <h1>AlaapChats 💬</h1>
+            <div id="user-status">Offline</div>
+        </div>
+        
+        <div class="chat-area" id="chat-area">
+            <!-- Messages appear here -->
+        </div>
+        
+        <div class="input-area">
+            <input type="text" id="message-input" placeholder="Type your message...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <div class="login-modal" id="login-modal">
+        <div class="login-box">
+            <h2>Welcome to AlaapChats</h2>
+            <input type="text" id="username" placeholder="Your name">
+            <button id="login-btn">Start Chatting</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
